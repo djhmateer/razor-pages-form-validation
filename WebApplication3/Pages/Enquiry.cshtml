@@ -1,0 +1,57 @@
+﻿@page
+@model EnquiryModel
+@{
+    ViewData["Title"] = "Enquiry";
+}
+<h1>Make an Enquiry!</h1>
+
+@{
+    var asdf = @Model.Message;
+    var asdf2 = Model.BudgetAmount;
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Message"></label>
+                <textarea asp-for="Message" class="form-control" rows="3" placeholder="Your enquiry"></textarea>
+                @*<textarea asp-for="Message" class="form-control" rows="3"></textarea>*@
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <p> Enter 999 to fake a server side validation error</p>
+                <label asp-for="BudgetAmount"></label>
+                <input asp-for="BudgetAmount" class="form-control" />
+                <span asp-validation-for="BudgetAmount" class="text-danger"></span>
+            </div>
+
+            <!-- thing -->
+            <div class="form-group">
+                <label asp-for="Thing.ThingId"></label>
+                <input asp-for="Thing.ThingId" class="form-control" />
+                <span asp-validation-for="Thing.ThingId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Thing.Name"></label>
+                <input asp-for="Thing.Name" class="form-control" />
+                <span asp-validation-for="Thing.Name" class="text-danger"></span>
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
